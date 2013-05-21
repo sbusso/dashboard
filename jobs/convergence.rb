@@ -7,7 +7,7 @@ actual_points = 50
   actual_points -= rand(20)
 end
 last_x = points.last[:x]
-send_event('convergence', points: points)
-SCHEDULER.every '60s' do
+
+SCHEDULER.every '60s', :first_in => 0 do
   send_event('convergence', points: points)
 end
